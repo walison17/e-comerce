@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import View, TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView
+from django.contrib.auth.decorators import login_required
 
 from .forms import UserAdminCreationForm
 from .models import User
@@ -10,9 +10,14 @@ from .models import User
 
 # Create your views here.
 
+class IndexView(TemplateView):
+    template_name = 'accounts/index.html'
+
+index = login_required(IndexView.as_view())
+
 
 class login(TemplateView):
-    template_name = 'accounts/login.html'
+    template_name = 'accounts/accounts/login.html'
 
 
 class RegisterView(CreateView):

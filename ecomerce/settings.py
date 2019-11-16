@@ -138,3 +138,13 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 AUTH_USER_MODEL = 'accounts.User'
+
+# No curso diz que esse trecho é necessário para que o dajngo verifique
+# o modo de autenticação que tem os requisitos atendidos e execute-a normalmente,
+# prém no meu caso funcionou sem, só alterei o USERNAME_FIELD  de username para
+# email, no models de accounts.
+#
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+#     'accounts.backends.ModelBackend',
+# )
